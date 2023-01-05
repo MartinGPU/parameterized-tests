@@ -1,1 +1,1 @@
-# parameterized-tests
+Параметризованные тесты ValueSource, CsvSource, EnumSource, MethodSource
