@@ -5,10 +5,9 @@ import com.marat.pages.component.MenuItemLeftComponent;
 import com.marat.pages.component.TranslateWindowComponent;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.EnumSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.*;
+
+import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Selenide.sleep;
 
@@ -28,30 +27,43 @@ public class TranslateTests {
     }
 
     @DisplayName("CsvSourceTest")
-    @CsvSource(value = {"Казнить нельзя, помиловать"})
+    @CsvSource({"Дима, 33", "Вася, 22"})
     @ParameterizedTest
-    public void checkPage(String name1, String name2) {
+    public void checkPage(String name1, int age) {
         googlePage.openPage();
-        translateWindowComponent.changeItem().setValue(name1 + ", " + name2);
+        translateWindowComponent.changeItem().setValue2(name1 + ": Возраст " + age);
         sleep(3000);
         translateWindowComponent.checkValue().deleteValue();
         sleep(3000);
     }
 
-//    @DisplayName("EnumSourceTest")
-//    @EnumSource(MenuItemLeftComponent.class)
-//    @ParameterizedTest
-//    public void checkPage(MenuItemLeftComponent menuItemLeftComponent) {
-//        googlePage.openPage().switchToMenuItemLeft(menuItemLeftComponent);
-//        translateWindowComponent.setValue("123");
-//        sleep(3000);
-//        translateWindowComponent.checkValue().deleteValue();
-//        sleep(3000);
-//    }
-//
-//    @DisplayName("MethodSourceTest")
-//    @MethodSource
-//    @ParameterizedTest
-//    public static void checkPage2() {
-//    }
+    @DisplayName("EnumSourceTest")
+    @EnumSource(MenuItemLeftComponent.class)
+    @ParameterizedTest
+    public void checkPage(MenuItemLeftComponent menuItemLeftComponent) {
+        googlePage.openPage().switchToMenuItemLeft(menuItemLeftComponent);
+        translateWindowComponent.setValue("123");
+        sleep(3000);
+        translateWindowComponent.checkValue().deleteValue();
+        sleep(3000);
+    }
+
+    static Stream<Arguments> methodSource() {
+        return Stream.of(
+                Arguments.of("Молоко"),
+                Arguments.of("Картофель"),
+                Arguments.of("Хлеб")
+        );
+    }
+
+    @DisplayName("MethodSourceTest")
+    @MethodSource
+    @ParameterizedTest
+    void methodSource(String str1) {
+        googlePage.openPage();
+        translateWindowComponent.changeItem();
+        translateWindowComponent.setValue3(str1);
+        sleep(3000);
+        translateWindowComponent.checkValue().deleteValue();
+    }
 }
