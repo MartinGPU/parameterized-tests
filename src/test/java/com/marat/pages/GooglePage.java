@@ -21,14 +21,6 @@ public class GooglePage extends TestBase {
         return this;
     }
 
-    public String getURL() {
-        return URL;
-    }
-
-    public SelenideElement getFormTitle() {
-        return formTitle;
-    }
-
     public GooglePage switchToMenuItemLeft(MenuItemLeftComponent menuItemLeftComponent) {
         if (menuItemLeftComponent == MenuItemLeftComponent.ENGLISH) {
             $$("[role = 'tab']").findBy(text(menuItemLeftComponent.getDesc())).click();

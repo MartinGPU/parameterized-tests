@@ -29,9 +29,9 @@ public class TranslateWindowComponent {
         return this;
     }
 
-    public TranslateWindowComponent setValue3(String str1) {
-        transWindowLeft.setValue(str1);
-        return setValue2(str1);
+    public TranslateWindowComponent setValue3(String str1, String str2, int i) {
+        transWindowLeft.setValue(str1 + " " + str2 + " " + i);
+        return this;
     }
 
     public TranslateWindowComponent checkValue() {
@@ -43,6 +43,4 @@ public class TranslateWindowComponent {
         transWindowLeft.clear();
         return this;
     }
-
-
 }

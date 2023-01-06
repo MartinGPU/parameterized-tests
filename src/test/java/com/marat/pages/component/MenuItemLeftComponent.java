@@ -1,7 +1,5 @@
 package com.marat.pages.component;
 
-import com.codeborne.selenide.SelenideElement;
-
 public enum MenuItemLeftComponent {
     ENGLISH("английский"),
     RUSSIAN("русский");

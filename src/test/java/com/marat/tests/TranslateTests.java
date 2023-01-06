@@ -50,19 +50,19 @@ public class TranslateTests {
 
     static Stream<Arguments> methodSource() {
         return Stream.of(
-                Arguments.of("Молоко"),
-                Arguments.of("Картофель"),
-                Arguments.of("Хлеб")
+                Arguments.of("Молоко", "Кефир", 300),
+                Arguments.of("Автомобиль", "Двигатель", 400),
+                Arguments.of("Лыжи", "Сноуборд", 500)
         );
     }
 
     @DisplayName("MethodSourceTest")
     @MethodSource
     @ParameterizedTest
-    void methodSource(String str1) {
+    void methodSource(String str1, String str2, int i) {
         googlePage.openPage();
         translateWindowComponent.changeItem();
-        translateWindowComponent.setValue3(str1);
+        translateWindowComponent.setValue3(str1, str2, i);
         sleep(3000);
         translateWindowComponent.checkValue().deleteValue();
     }
