@@ -1,8 +1,8 @@
 package com.marat.tests;
 
 import com.marat.pages.GooglePage;
-import com.marat.pages.component.MenuItemLeftComponent;
-import com.marat.pages.component.TranslateWindowComponent;
+import com.marat.pages.components.MenuItemLeftComponent;
+import com.marat.pages.components.TranslateWindowComponent;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;

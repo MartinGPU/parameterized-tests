@@ -1,4 +1,4 @@
-package com.marat.pages.component;
+package com.marat.pages.components;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;

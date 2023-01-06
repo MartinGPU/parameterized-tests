@@ -2,7 +2,7 @@ package com.marat.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.marat.pages.component.MenuItemLeftComponent;
+import com.marat.pages.components.MenuItemLeftComponent;
 import com.marat.tests.TestBase;
 
 import static com.codeborne.selenide.Condition.text;

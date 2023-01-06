@@ -1,4 +1,4 @@
-package com.marat.pages.component;
+package com.marat.pages.components;
 
 public enum MenuItemLeftComponent {
     ENGLISH("английский"),
